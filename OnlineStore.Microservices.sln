@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{277D8BE3-6772-4AEE-9C88-E1ABD6B29D73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{0A943A93-A6A2-4F80-AEFA-6918B9D4E8F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{40443F58-79FE-4C2C-9C5A-041E130EDCDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{24141659-9BD2-4A54-87BD-3A4F8E30844D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Web", "src\Web\OnlineStore.Web\OnlineStore.Web.csproj", "{372780DC-13D1-4294-90FB-07B306EE3033}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Services.Users", "src\Services\OnlineStore.Services.Users\OnlineStore.Services.Users.csproj", "{DAE27D06-230A-4F94-8E1D-0C19B02926C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.Gateways.Web", "src\Gateways\OnlineStore.Gateways.Web\OnlineStore.Gateways.Web.csproj", "{7C18798C-FE63-409B-BCEE-B06F7E820518}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{372780DC-13D1-4294-90FB-07B306EE3033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{372780DC-13D1-4294-90FB-07B306EE3033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{372780DC-13D1-4294-90FB-07B306EE3033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{372780DC-13D1-4294-90FB-07B306EE3033}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE27D06-230A-4F94-8E1D-0C19B02926C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE27D06-230A-4F94-8E1D-0C19B02926C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE27D06-230A-4F94-8E1D-0C19B02926C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE27D06-230A-4F94-8E1D-0C19B02926C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C18798C-FE63-409B-BCEE-B06F7E820518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C18798C-FE63-409B-BCEE-B06F7E820518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C18798C-FE63-409B-BCEE-B06F7E820518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C18798C-FE63-409B-BCEE-B06F7E820518}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0A943A93-A6A2-4F80-AEFA-6918B9D4E8F1} = {277D8BE3-6772-4AEE-9C88-E1ABD6B29D73}
+		{40443F58-79FE-4C2C-9C5A-041E130EDCDF} = {277D8BE3-6772-4AEE-9C88-E1ABD6B29D73}
+		{24141659-9BD2-4A54-87BD-3A4F8E30844D} = {277D8BE3-6772-4AEE-9C88-E1ABD6B29D73}
+		{372780DC-13D1-4294-90FB-07B306EE3033} = {24141659-9BD2-4A54-87BD-3A4F8E30844D}
+		{DAE27D06-230A-4F94-8E1D-0C19B02926C2} = {40443F58-79FE-4C2C-9C5A-041E130EDCDF}
+		{7C18798C-FE63-409B-BCEE-B06F7E820518} = {0A943A93-A6A2-4F80-AEFA-6918B9D4E8F1}
+	EndGlobalSection
+EndGlobal
