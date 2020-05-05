@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GRPCCatalog";
+
+package CatalogApi;
+
+service Catalog {
+  rpc GetInfoBy(CatalogInfoRequest) returns (CatalogInfoResponse) {}
+}
+
+message CatalogInfoRequest {
+  int64 id = 1;
+}
+
+message CatalogInfoResponse {
+  string title = 2;
+}
