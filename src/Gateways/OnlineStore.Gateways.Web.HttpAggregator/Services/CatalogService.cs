@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OnlineStore.Gateways.Web.HttpAggregator.Infrastructure;
-using OnlineStore.Services.Catalog.Models;
+using OnlineStore.Gateways.Web.HttpAggregator.Models;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Gateways.Web.HttpAggregator.Services
@@ -24,7 +24,7 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Services
             return await CallService(_options.Value.Catalog, async channel =>
             {
                 var client = new Catalog.CatalogClient(channel);
-                var request = new CatalogInfoRequest { Id = id };
+                var request = new CatalogItemRequest { Id = id };
                 var response = await client.GetInfoByAsync(request);
 
                 return new CatalogInfo

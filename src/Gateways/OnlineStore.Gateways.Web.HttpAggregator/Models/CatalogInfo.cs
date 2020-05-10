@@ -1,4 +1,4 @@
-﻿namespace OnlineStore.Services.Catalog.Models
+﻿namespace OnlineStore.Gateways.Web.HttpAggregator.Models
 {
     public class CatalogInfo
     {

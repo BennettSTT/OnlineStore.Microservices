@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineStore.Gateways.Web.HttpAggregator.Models;
 using OnlineStore.Gateways.Web.HttpAggregator.Services;
-using OnlineStore.Services.Catalog.Models;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -28,7 +28,7 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Controllers
                 return NotFound();
             }
 
-            return await _catalogService.GetInfoByAsync(id);;
+            return await _catalogService.GetInfoByAsync(id);
         }
     }
 }

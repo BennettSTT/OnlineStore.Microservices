@@ -1,16 +1,22 @@
 ﻿using Grpc.Core;
 using GRPCCatalog;
+using System;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Services.Catalog.Services
 {
     public class CatalogService : GRPCCatalog.Catalog.CatalogBase
     {
-        public override Task<CatalogInfoResponse> GetInfoBy(CatalogInfoRequest request, ServerCallContext context)
+        public override Task<CatalogItemResponse> GetInfoBy(CatalogItemRequest request, ServerCallContext context)
         {
-            var response = new CatalogInfoResponse
+            var random = new Random();
+            
+            var response = new  CatalogItemResponse
             {
-                Title = "Catalog info"
+                Id = request.Id,
+                Description = "This is description",
+                Title = "Title",
+                Price = random.Next()
             };
 
             return Task.FromResult(response);

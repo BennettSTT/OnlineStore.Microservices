@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 
-namespace OnlineStore.Gateways.Web
+namespace OnlineStore.Gateways.Web.Proxy
 {
     public class Startup
     {
@@ -30,14 +30,14 @@ namespace OnlineStore.Gateways.Web
             }
 
             app.UseOcelot().Wait();
-            
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

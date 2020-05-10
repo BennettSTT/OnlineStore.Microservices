@@ -5,13 +5,16 @@ option csharp_namespace = "GRPCCatalog";
 package CatalogApi;
 
 service Catalog {
-  rpc GetInfoBy(CatalogInfoRequest) returns (CatalogInfoResponse) {}
+  rpc GetInfoBy(CatalogItemRequest) returns (CatalogItemResponse) {}
 }
 
-message CatalogInfoRequest {
+message CatalogItemRequest {
   int64 id = 1;
 }
 
-message CatalogInfoResponse {
-  string title = 2;
+message CatalogItemResponse {
+  int64 id = 2;
+  string title = 5;
+  string description = 3;
+  int64 price = 4;
 }

@@ -1,4 +1,4 @@
-﻿using OnlineStore.Services.Catalog.Models;
+﻿using OnlineStore.Gateways.Web.HttpAggregator.Models;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Gateways.Web.HttpAggregator.Services
