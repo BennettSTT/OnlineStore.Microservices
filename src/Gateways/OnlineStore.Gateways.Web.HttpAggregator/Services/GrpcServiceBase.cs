@@ -10,7 +10,7 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Services
     {
         private const string Http2UnencryptedSupport = "System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport";
         private const string Http2SocketsHttpHandlerSupport = "System.Net.Http.SocketsHttpHandler.Http2Support";
-        
+
         private readonly ILoggerFactory _loggerFactory;
 
         protected GrpcServiceBase(ILoggerFactory loggerFactory)
@@ -19,13 +19,16 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Services
         }
 
         protected async Task<TResponse> CallService<TResponse>(
-            [NotNull] string url, 
+            [NotNull] string url,
             [NotNull] Func<GrpcChannel, Task<TResponse>> actionAsync)
         {
             AppContext.SetSwitch(Http2UnencryptedSupport, true);
             AppContext.SetSwitch(Http2SocketsHttpHandlerSupport, true);
 
-            var channel = GrpcChannel.ForAddress(url, new GrpcChannelOptions { LoggerFactory = _loggerFactory });
+            var channel = GrpcChannel.ForAddress(url, new GrpcChannelOptions
+            {
+                LoggerFactory = _loggerFactory
+            });
 
             try
             {
@@ -42,7 +45,7 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Services
         }
 
         protected async Task CallService(
-            [NotNull] string url, 
+            [NotNull] string url,
             [NotNull] Func<GrpcChannel, Task> func)
         {
             AppContext.SetSwitch(Http2UnencryptedSupport, true);

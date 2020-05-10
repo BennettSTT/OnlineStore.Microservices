@@ -16,11 +16,11 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Controllers
         {
             _catalogService = catalogService;
         }
-        
+
         [HttpGet]
         [Route("info/{id:long}")]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(CatalogInfo), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(CatalogInfo), (int) HttpStatusCode.OK)]
         public async Task<ActionResult<CatalogInfo>> GetInfoById(long id)
         {
             if (id <= 0)

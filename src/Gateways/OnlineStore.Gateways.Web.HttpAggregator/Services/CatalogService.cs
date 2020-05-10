@@ -13,18 +13,18 @@ namespace OnlineStore.Gateways.Web.HttpAggregator.Services
 
         public CatalogService(
             IOptions<UrlsOption> options,
-            ILoggerFactory loggerFactory) 
+            ILoggerFactory loggerFactory)
             : base(loggerFactory)
         {
             _options = options;
         }
-        
+
         public async Task<CatalogInfo> GetInfoByAsync(long id)
         {
             return await CallService(_options.Value.Catalog, async channel =>
             {
                 var client = new Catalog.CatalogClient(channel);
-                var request = new CatalogItemRequest { Id = id };
+                var request = new CatalogItemRequest {Id = id};
                 var response = await client.GetInfoByAsync(request);
 
                 return new CatalogInfo

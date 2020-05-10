@@ -10,15 +10,15 @@ namespace OnlineStore.Services.Users.Controllers
     {
         [HttpGet]
         [Route("info/{id:int}")]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(UserInfo), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int) HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(UserInfo), (int) HttpStatusCode.OK)]
         public ActionResult<UserInfo> GetInfoById(int id)
         {
             if (id <= 0)
             {
                 return NotFound();
             }
-            
+
             var info = new UserInfo
             {
                 FirstName = "Anna",

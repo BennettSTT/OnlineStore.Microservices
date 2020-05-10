@@ -3,15 +3,15 @@ using GRPCCatalog;
 using System;
 using System.Threading.Tasks;
 
-namespace OnlineStore.Services.Catalog.Services
+namespace OnlineStore.Services.Catalog.GrpcServices
 {
     public class CatalogService : GRPCCatalog.Catalog.CatalogBase
     {
         public override Task<CatalogItemResponse> GetInfoBy(CatalogItemRequest request, ServerCallContext context)
         {
             var random = new Random();
-            
-            var response = new  CatalogItemResponse
+
+            var response = new CatalogItemResponse
             {
                 Id = request.Id,
                 Description = "This is description",
