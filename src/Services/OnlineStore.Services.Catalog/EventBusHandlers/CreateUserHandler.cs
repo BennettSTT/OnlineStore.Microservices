@@ -1,13 +1,14 @@
 ﻿using OnlineStore.Services.Catalog.Models;
-using OnlineStore.Services.Infrastructure.Implementation;
+using OnlineStore.Services.Infrastructure.Interfaces;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 namespace OnlineStore.Services.Catalog.EventBusHandlers
 {
-    public class CreateUserHandler : EventBusHandlerBase<CreateUserEvent>
+    public class CreateUserHandler : IEventBusHandler<CreateUserEvent>
     {
-        public override Task HandlerAsync(CreateUserEvent @event)
+        public Task HandlerAsync([NotNull] CreateUserEvent @event)
         {
             throw new NotImplementedException();
         }

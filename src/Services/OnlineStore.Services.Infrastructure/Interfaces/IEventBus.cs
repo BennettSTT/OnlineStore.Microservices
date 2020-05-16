@@ -1,13 +1,15 @@
 ﻿using OnlineStore.Services.Infrastructure.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace OnlineStore.Services.Infrastructure.Interfaces
 {
     public interface IEventBus
     {
-        void Publish(EventBase @event);
+        void Publish<TEvent>([NotNull] TEvent @event)
+            where TEvent : EventBase;
 
-        void Subscribe<TRoutingKey, THandler>()
-            where TRoutingKey : EventBase, new()
-            where THandler : IEventBusHandler<TRoutingKey>, new();
+        void Subscribe<THandler, TEvent>()
+            where THandler : IEventBusHandler<TEvent>
+            where TEvent : EventBase;
     }
 }

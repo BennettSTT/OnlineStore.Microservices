@@ -4,14 +4,15 @@ using OnlineStore.Services.Infrastructure.Implementation;
 using OnlineStore.Services.Infrastructure.Interfaces;
 using RabbitMQ.Client;
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace OnlineStore.Services.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection RegisterEventBusServices(
-            this IServiceCollection services,
-            IConfiguration configuration)
+            [NotNull] this IServiceCollection services,
+            [NotNull] IConfiguration configuration)
         {
             services.AddSingleton<IEventBusConnectionManager>(provider =>
             {
@@ -31,12 +32,8 @@ namespace OnlineStore.Services.Infrastructure.Extensions
                 return new EventBusConnectionManager(factory);
             });
 
-            services.AddSingleton<IEventBus>(provider =>
-            {
-                var connectionManager = provider.GetService<IEventBusConnectionManager>();
-
-                return new EventBus(connectionManager);
-            });
+            services.AddSingleton<IEventBus, EventBus>();
+            services.AddSingleton<IRouteResolver, RouteResolver>();
 
             return services;
         }

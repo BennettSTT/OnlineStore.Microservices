@@ -22,6 +22,9 @@ namespace OnlineStore.Services.Catalog
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IEventBusHandler<CreateUserEvent>, CreateUserHandler>();
+            services.AddTransient<IEventBusHandler<UpdateUserEvent>, UpdateUserHandler>();
+
             services.RegisterEventBusServices(_configuration);
 
             services.AddControllers();
@@ -53,8 +56,8 @@ namespace OnlineStore.Services.Catalog
         {
             var eventBus = app.ApplicationServices.GetRequiredService<IEventBus>();
 
-            eventBus.Subscribe<CreateUserEvent, CreateUserHandler>();
-            eventBus.Subscribe<UpdateUserEvent, UpdateUserHandler>();
+            eventBus.Subscribe<IEventBusHandler<CreateUserEvent>, CreateUserEvent>();
+            eventBus.Subscribe<IEventBusHandler<UpdateUserEvent>, UpdateUserEvent>();
         }
     }
 }

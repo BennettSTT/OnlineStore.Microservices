@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using OnlineStore.Services.Infrastructure.Interfaces;
+using OnlineStore.Services.Infrastructure.Models;
 using OnlineStore.Services.Users.Models;
 using System.Net;
 
@@ -8,6 +10,13 @@ namespace OnlineStore.Services.Users.Controllers
     [Route("api/v1/[controller]")]
     public class UserController : ControllerBase
     {
+        private readonly IEventBus _eventBus;
+
+        public UserController(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
+        }
+
         [HttpGet]
         [Route("info/{id:int}")]
         [ProducesResponseType((int) HttpStatusCode.NotFound)]
@@ -19,6 +28,11 @@ namespace OnlineStore.Services.Users.Controllers
                 return NotFound();
             }
 
+            _eventBus.Publish(new CreateUserEvent
+            {
+                FirstName = "Anna"
+            });
+
             var info = new UserInfo
             {
                 FirstName = "Anna",
@@ -26,6 +40,11 @@ namespace OnlineStore.Services.Users.Controllers
             };
 
             return info;
+        }
+
+        public class CreateUserEvent : EventBase
+        {
+            public string FirstName { get; set; }
         }
     }
 }
