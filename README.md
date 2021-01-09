@@ -1,0 +1,1 @@
+An example of a project with a microservice architecture for the final qualifying work "Methodology for designing a microservice architecture of corporate information systems using the Microsoft software platform"
