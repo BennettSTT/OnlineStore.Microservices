@@ -51,7 +51,7 @@ namespace OnlineStore.Services.Infrastructure.Implementation
 
                     return true;
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     // TODO: log error
                     return false;

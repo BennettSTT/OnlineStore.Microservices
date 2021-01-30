@@ -89,7 +89,7 @@ namespace OnlineStore.Services.Infrastructure.Implementation
             {
                 @event = JsonConvert.DeserializeObject<TEvent>(message);
             }
-            catch (JsonReaderException exception)
+            catch (JsonReaderException)
             {
                 // TODO: log error
                 return false;
